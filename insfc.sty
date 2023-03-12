@@ -1,0 +1,199 @@
+% 根据基金 Word 模板制定上下左右页面边距
+\usepackage[left=3.2cm, right=3.2cm, top=2.54cm, bottom=2.54cm]{geometry}
+
+%# mathematical packages
+\usepackage{amsmath,amssymb,amsthm,amscd}
+\usepackage{mathtools}
+\usepackage{dsfont} % for \mathds{N}
+\usepackage{bm} % for mathematical vector
+\usepackage[binary-units=true]{siunitx}
+\sisetup{table-align-text-post=false, retain-unity-mantissa=false, exponent-product = \cdot}
+
+%# table packages
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage[font=footnotesize]{subcaption}
+\usepackage{booktabs} % for \toprule \midrule \bottomrule
+\usepackage{blkarray} % environment blockarray
+\usepackage{pdflscape}
+\usepackage{longtable}
+
+%# graphical packages
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% reference packages
+\usepackage[hidelinks]{hyperref}
+%\usepackage[colorlinks=true, citecolor=blue, linkcolor=blue]{hyperref}
+\usepackage[square, numbers, sort&compress]{natbib}   % For Reference
+\usepackage{varioref} % vref vpageref
+\usepackage{cleveref} %
+\usepackage{chapterbib} % referece in each chapter
+
+%# list packages, which is better than itemize enumerate description
+\usepackage{paralist} % \asparaitem \compactitem \asparaenum \compactenum
+\usepackage{verbatim} % for literal text input
+
+% underlining packages
+% \usepackage[normalem]{ulem} % ulem cannot support CJK underline
+\usepackage{xeCJKfntef}
+
+% misc packages
+\usepackage{fancybox}
+\usepackage{eurosym}
+\usepackage[running]{lineno}
+\usepackage{afterpage}
+\usepackage{xspace}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+%# nomenclature
+% a bug in this package: | is not allowed to use
+\usepackage[compatible]{nomencl}
+\setlength{\nomlabelwidth}{1.8cm}
+
+% %# new commands
+% % Cite mark [1] on the top right
+% \newcommand{\cites}[1]{\textsuperscript{\cite{#1}}}
+% \newcommand{\jiacu}[1]{{\bfseries\heiti #1}}
+% \newcommand{\jiadian}[1]{{\kaishu \dotuline{#1}}}
+
+% \newcommand{\dd}{\mathrm{d}} % for differential operator d
+% \newcommand{\mi}{\mathrm{i}} % for math e
+% \newcommand{\me}{\mathrm{e}} % for math i
+% \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+% \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% \newcommand{\mean}[1]{\left\langle#1\right\rangle}
+% \newcommand{\pbk}[1]{\left(#1\right)}
+% \newcommand{\cbk}[1]{\left\lbrace#1\right\rbrace}
+% \newcommand{\sbk}[1]{\left\lbrack#1\right\rbrack}
+% \newcommand{\ie}{\textit{i.e.}\@\xspace}
+% \newcommand{\eg}{\textit{e.g.}\@\xspace}
+% \newcommand{\D}{\displaystyle} % for math display
+% %\newcommand{\HE}{\hbox{H\kern-.12em\lower.48ex\hbox{E}}}
+% \def\leaderfill{\leaders\hbox to 1em{\hss.\hss}\hfill}
+% %\DeclareMathOperator{\OP}{OP}
+% \DeclareSIUnit\molar{\mole\per\cubic\metre}
+% \DeclareSIUnit\Molar{\textsc{M}}
+
+% 因为基金 Word 模板定义了章节标题，所以不可直接使用 ctexart
+% 只启用 ctex.sty 宏包以支持中文排版
+\usepackage[UTF8, fontset=none]{ctex} % 显式指定 uft8 编码选项
+
+\usepackage{xeCJK}
+\xeCJKsetup{
+  CheckSingle=true, % 孤字检查
+  AutoFallBack=true, % 生僻字
+  AutoFakeBold=false, % 不使用伪粗体，因为会很难看
+  AutoFakeSlant=true % 伪斜体
+}
+
+% 定义 Word 模板中的蓝色
+\definecolor{nsfcBlue}{RGB}{0, 112, 192}
+
+% 设置字号快捷命令
+% \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont} % 初号
+% \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} % 小初号
+% \newcommand{\yihao}{\fontsize{26pt}{\baselineskip}\selectfont} % 一号
+% \newcommand{\xiaoyihao}{\fontsize{24pt}{\baselineskip}\selectfont} % 小一号
+% \newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont} % 二号
+% \newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont} % 小二号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont} % 三号
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont} % 小三号
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont} % 四号
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont} % 小四号
+% \newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont} % 五号
+% \newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont} % 小五号
+
+% 设置字体
+\setmainfont{Times New Roman}
+\setCJKmainfont{simsun.ttf}[AutoFakeBold]
+\setCJKfamilyfont{song}{simsun.ttf}
+\newcommand{\songti}{\CJKfamily{song}}
+\setCJKfamilyfont{kai}{simkai.ttf}[AutoFakeBold]
+\newcommand{\kaishu}{\CJKfamily{kai}}
+
+% 定义四号蓝色楷体为 \kaishuBlue
+% 定义四号蓝色楷体伪加粗为 \kaishuBlueBold
+\newcommand{\kaishuBlue}[1]{\textcolor{nsfcBlue}{{\zihao{4}{{\kaishu #1}}}}}
+\newcommand{\kaishuBlueBold}[1]{\bfseries\kaishuBlue{#1}}
+
+% 调用 cleveref 宏包将 图 1: 的样式改为 图 1.
+\captionsetup[figure]{labelsep=period}
+\captionsetup[table]{labelsep=period}
+
+% 文档不能有页码，因为提交后会自动生成
+\pagestyle{empty}
+
+% 设置“报告正文”标题
+\renewcommand{\maketitle}{
+  \begingroup
+        \begin{center}
+            {\zihao{3} \bfseries\kaishu 报告正文}
+        \end{center}
+        \thispagestyle{empty}
+  \endgroup
+}
+
+% 设定“参考文献”字样
+\renewcommand\refname{
+  \textcolor{black}{\hskip 2pt \zihao{-4}\textbf{参考文献}}
+}
+% 设置每条参考文献之间间距
+\setlength{\bibsep}{1pt plus 0.3ex}
+
+% Chapter definition:（一）立项依据与研究内容（建议8000字以内）
+% this is a hard-core modification, as no chapter definition in the article class
+\newcommand{\nsfcChapter}[2]{
+  \begingroup
+    \setcounter{section}{0}
+    \setlength{\baselineskip}{22pt}
+    \indent {\kaishuBlueBold{#1}}{\kaishuBlue{#2}} \vspace{4bp}%
+  \endgroup
+}
+
+% Note definition: 参照以下提纲撰写，要求内容翔实、清晰，层次分明，...
+\newcommand{\nsfcNote}[2]{
+  \begingroup
+    \setlength{\baselineskip}{22pt}
+    \indent {\zihao{4} \kaishu{#1}}{\kaishuBlueBold{#2}}
+    \vspace{4bp}%
+    %\vspace{-1em}
+  \endgroup
+}
+
+% Section definition: 2．项目的研究内容、研究目标，以及拟解决的关键科学问题（此部分为重点阐述内容）；
+\newcommand{\nsfcSection}[3]{
+    \begingroup
+        \setcounter{section}{0}
+        % \setcounter{subsection}{0}
+        \setlength{\baselineskip}{22pt}
+        \indent {\kaishuBlue{#1． }}{\kaishuBlueBold{#2}}{\kaishuBlue{#3}}
+    \endgroup
+}
+
+% % Subsection definition (cf. Prof. Mingming Chen)
+% \def\cvprsubsection{\@startsection {subsection}{2}{\z@}
+%    {11pt plus 2pt minus 2pt}{6pt} {\bfseries \heiti}}
+% \def\cvprssubsect#1{\cvprsubsection*{\large #1}}
+% \def\cvprsubsect#1{\cvprsubsection{\hskip -1em.~#1 }\vspace{-0.2em}}
+% \def\subsection{\@ifstar\cvprssubsect\cvprsubsect}
+
+% % Subsubsection definition
+% \def\cvprsubsubsection{\@startsection {subsubsection}{3}{\z@}
+%    {11pt plus 2pt minus 2pt}{6pt} {\bfseries \songti}}
+% \def\cvprssubsubsect#1{\cvprsubsubsection*{\large #1}}
+% \def\cvprsubsubsect#1{\cvprsubsubsection{\hskip -1em.~#1}\vspace{-0.2em}}
+% \def\subsubsection{\@ifstar\cvprssubsubsect\cvprsubsubsect}
+
+% 设置每自然段之间 parskip 为 0.5em，使文档更加美观
+\setlength{\parskip}{0.5em}
+
+% \newcommand{\emphless}[1]{\textbf{#1}}
+% \newcommand{\emphmore}[1]{\uline{\textbf{#1}}}
+
+\xeCJKsetup { underline/skip = false }
+\newcommand{\emphless}[1]{\textbf{#1}}
+\newcommand{\emphmore}[1]{\CJKunderline[textformat=\bfseries]{#1}}
